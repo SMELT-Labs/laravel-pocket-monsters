@@ -3,11 +3,13 @@
     "description": "A Laravel wrapper for pokeapi",
     "autoload": {
         "psr-4": {
-            "SmeltLabs\\PocketMonsters\\": "src/"
+            "SmeltLabs\\PocketMonsters\\": "src/SmeltLabs/PocketMonsters"
         }
     },
     "require": {
-        "php": ">=8.0"
+        "php": ">=8.0",
+        "guzzlehttp/guzzle": "^7.2",
+        "laravel/framework": "^9.0"
     },
     "extra": {
         "laravel": {

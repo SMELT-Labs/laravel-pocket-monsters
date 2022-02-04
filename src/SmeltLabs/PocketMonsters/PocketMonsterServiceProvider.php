@@ -2,6 +2,8 @@
 
 namespace SmeltLabs\PocketMonsters;
 
+use Illuminate\Routing\RouteCollection;
+use Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\ServiceProvider;
 
 class PocketMonsterServiceProvider extends ServiceProvider
@@ -13,7 +15,7 @@ class PocketMonsterServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
     }
 
     /**
