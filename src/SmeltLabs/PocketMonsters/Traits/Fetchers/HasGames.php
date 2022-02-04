@@ -6,74 +6,62 @@ trait HasGames
 {
     public function getGenerationByName(string $name): array
     {
-        // TODO: Implement getGenerationByName() method.
-        return array();
+        return $this->fetch($this->builder->getGenerationByName($name));
     }
 
     public function getGenerationById(int $id): array
     {
-        // TODO: Implement getGenerationById() method.
-        return array();
+        return $this->fetch($this->builder->getGenerationById($id));
     }
 
     public function getAllGenerations(): array
     {
-        // TODO: Implement getAllGenerations() method.
-        return array();
+        return $this->fetch($this->builder->getAllGenerations());
     }
 
     public function getPokedexByName(string $name): array
     {
-        // TODO: Implement getPokedexByName() method.
-        return array();
+        return $this->fetch($this->builder->getPokedexByName($name));
     }
 
     public function getPokedexById(int $id): array
     {
-        // TODO: Implement getPokedexById() method.
-        return array();
+        return $this->fetch($this->builder->getPokedexById($id));
     }
 
     public function getAllPokedexs(): array
     {
-        // TODO: Implement getAllPokedexs() method.
-        return array();
+        return $this->fetch($this->builder->getAllPokedexs());
     }
 
     public function getVersionByName(string $name): array
     {
-        // TODO: Implement getVersionByName() method.
-        return array();
+        return $this->fetch($this->builder->getVersionByName($name));
     }
 
     public function getVersionById(int $id): array
     {
-        // TODO: Implement getVersionById() method.
-        return array();
+        return $this->fetch($this->builder->getVersionById($id));
     }
 
     public function getAllVersions(): array
     {
-        // TODO: Implement getAllVersions() method.
-        return array();
+        return $this->fetch($this->builder->getAllVersions());
     }
 
     public function getVersionGroupByName(string $name): array
     {
-        // TODO: Implement getVersionGroupByName() method.
-        return array();
+        return $this->fetch($this->builder->getVersionGroupByName($name));
     }
 
     public function getVersionGroupById(int $id): array
     {
-        // TODO: Implement getVersionGroupById() method.
-        return array();
+        return $this->fetch($this->builder->getVersionGroupById($id));
     }
 
     public function getAllVersionGroups(): array
     {
-        // TODO: Implement getAllVersionGroups() method.
-        return array();
+        return $this->fetch($this->builder->getAllVersionGroups());
     }
 
 }

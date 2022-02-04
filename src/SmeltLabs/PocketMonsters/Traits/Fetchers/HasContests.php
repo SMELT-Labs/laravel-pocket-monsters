@@ -6,44 +6,37 @@ trait HasContests
 {
     public function getContestTypeByName(string $name): array
     {
-        // TODO: Implement getContestTypeByName() method.
-        return array();
+        return $this->fetch($this->builder->getContestTypeByName($name));
     }
 
     public function getContestTypeById(int $id): array
     {
-        // TODO: Implement getContestTypeById() method.
-        return array();
+        return $this->fetch($this->builder->getContestTypeById($id));
     }
 
     public function getAllContestTypes(): array
     {
-        // TODO: Implement getAllContestTypes() method.
-        return array();
+        return $this->fetch($this->builder->getAllContestTypes());
     }
 
     public function getContestEffectById(int $id): array
     {
-        // TODO: Implement getContestEffectById() method.
-        return array();
+        return $this->fetch($this->builder->getContestEffectById($id));
     }
 
     public function getAllContestEffects(): array
     {
-        // TODO: Implement getAllContestEffects() method.
-        return array();
+        return $this->fetch($this->builder->getAllContestEffects());
     }
 
     public function getSuperContestEffectById(int $id): array
     {
-        // TODO: Implement getSuperContestEffectById() method.
-        return array();
+        return $this->fetch($this->builder->getSuperContestEffectById($id));
     }
 
     public function getAllSuperContestEffects(): array
     {
-        // TODO: Implement getAllSuperContestEffects() method.
-        return array();
+        return $this->fetch($this->builder->getAllSuperContestEffects());
     }
 
 }

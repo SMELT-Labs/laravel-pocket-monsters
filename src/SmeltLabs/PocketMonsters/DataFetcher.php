@@ -2,6 +2,7 @@
 
 namespace SmeltLabs\PocketMonsters;
 
+use Illuminate\Support\Facades\Http;
 use SmeltLabs\PocketMonsters\Traits\Fetchers\HasBerries;
 use SmeltLabs\PocketMonsters\Traits\Fetchers\HasContests;
 use SmeltLabs\PocketMonsters\Traits\Fetchers\HasEncounters;
@@ -27,4 +28,24 @@ class DataFetcher implements APIV2
         HasMoves,
         HasPokemon,
         HasUtility;
+
+    private EndpointBuilder $builder;
+
+    public function __construct()
+    {
+        $this->builder = new EndpointBuilder();
+    }
+
+    protected function fetch(string $url): array
+    {
+        return Http::get($url)->json() ?? [];
+    }
+
+    /**
+     * @return EndpointBuilder
+     */
+    public function getBuilder(): EndpointBuilder
+    {
+        return $this->builder;
+    }
 }

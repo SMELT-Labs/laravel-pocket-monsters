@@ -7,127 +7,106 @@ trait HasMoves
 
     public function getMoveByName(string $name): array
     {
-        // TODO: Implement getMoveByName() method.
-        return array();
+        return $this->fetch($this->builder->getMoveByName($name));
     }
 
     public function getMoveById(int $id): array
     {
-        // TODO: Implement getMoveById() method.
-        return array();
+        return $this->fetch($this->builder->getMoveById($id));
     }
 
     public function getAllMoves(): array
     {
-        // TODO: Implement getAllMoves() method.
-        return array();
+        return $this->fetch($this->builder->getAllMoves());
     }
 
     public function getMoveAilmentByName(string $name): array
     {
-        // TODO: Implement getMoveAilmentByName() method.
-        return array();
+        return $this->fetch($this->builder->getMoveAilmentByName($name));
     }
 
     public function getMoveAilmentById(int $id): array
     {
-        // TODO: Implement getMoveAilmentById() method.
-        return array();
+        return $this->fetch($this->builder->getMoveAilmentById($id));
     }
 
     public function getAllMoveAilments(): array
     {
-        // TODO: Implement getAllMoveAilments() method.
-        return array();
+        return $this->fetch($this->builder->getAllMoveAilments());
     }
 
     public function getMoveBattleStyleByName(string $name): array
     {
-        // TODO: Implement getMoveBattleStyleByName() method.
-        return array();
+        return $this->fetch($this->builder->getMoveBattleStyleByName($name));
     }
 
     public function getMoveBattleStyleById(int $id): array
     {
-        // TODO: Implement getMoveBattleStyleById() method.
-        return array();
+        return $this->fetch($this->builder->getMoveBattleStyleById($id));
     }
 
     public function getAllMoveBattleStyles(): array
     {
-        // TODO: Implement getAllMoveBattleStyles() method.
-        return array();
+        return $this->fetch($this->builder->getAllMoveBattleStyles());
     }
 
     public function getMoveCategoryByName(string $name): array
     {
-        // TODO: Implement getMoveCategoryByName() method.
-        return array();
+        return $this->fetch($this->builder->getMoveCategoryByName($name));
     }
 
     public function getMoveCategoryById(int $id): array
     {
-        // TODO: Implement getMoveCategoryById() method.
-        return array();
+        return $this->fetch($this->builder->getMoveCategoryById($id));
     }
 
     public function getAllMoveCategories(): array
     {
-        // TODO: Implement getAllMoveCategories() method.
-        return array();
+        return $this->fetch($this->builder->getAllMoveCategories());
     }
 
     public function getMoveDamageClassByName(string $name): array
     {
-        // TODO: Implement getMoveDamageClassByName() method.
-        return array();
+        return $this->fetch($this->builder->getMoveDamageClassByName($name));
     }
 
     public function getMoveDamageClassById(int $id): array
     {
-        // TODO: Implement getMoveDamageClassById() method.
-        return array();
+        return $this->fetch($this->builder->getMoveDamageClassById($id));
     }
 
     public function getAllMoveDamageClasses(): array
     {
-        // TODO: Implement getAllMoveDamageClasses() method.
-        return array();
+        return $this->fetch($this->builder->getAllMoveDamageClasses());
     }
 
     public function getMoveLearnMethodByName(string $name): array
     {
-        // TODO: Implement getMoveLearnMethodByName() method.
-        return array();
+        return $this->fetch($this->builder->getMoveLearnMethodByName($name));
     }
 
     public function getMoveLearnMethodById(int $id): array
     {
-        // TODO: Implement getMoveLearnMethodById() method.
-        return array();
+        return $this->fetch($this->builder->getMoveLearnMethodById($id));
     }
 
     public function getAllMoveLearnMethods(): array
     {
-        // TODO: Implement getAllMoveLearnMethods() method.
-        return array();
+        return $this->fetch($this->builder->getAllMoveLearnMethods());
     }
 
     public function getMoveTargetByName(string $name): array
     {
-        // TODO: Implement getMoveTargetByName() method.
-        return array();
+        return $this->fetch($this->builder->getMoveTargetByName($name));
     }
 
     public function getMoveTargetById(int $id): array
     {
-        // TODO: Implement getMoveTargetById() method.
-        return array();
+        return $this->fetch($this->builder->getMoveTargetById($id));
     }
 
     public function getAllMoveTargets(): array
     {
-        // TODO: Implement getAllMoveTargets() method.
-        return array();
+        return $this->fetch($this->builder->getAllMoveTargets());
     }
 }

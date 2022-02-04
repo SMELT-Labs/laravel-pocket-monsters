@@ -6,31 +6,26 @@ trait HasEvolution
 {
     public function getEvolutionChainById(int $id): array
     {
-        // TODO: Implement getEvolutionChainById() method.
-        return array();
+        return $this->fetch($this->builder->getEvolutionChainById($id));
     }
 
     public function getAllEvolutionChains(): array
     {
-        // TODO: Implement getAllEvolutionChains() method.
-        return array();
+        return $this->fetch($this->builder->getAllEvolutionChains());
     }
 
     public function getEvolutionTriggerByName(string $name): array
     {
-        // TODO: Implement getEvolutionTriggerByName() method.
-        return array();
+        return $this->fetch($this->builder->getEvolutionTriggerByName($name));
     }
 
     public function getEvolutionTriggerById(int $id): array
     {
-        // TODO: Implement getEvolutionTriggerById() method.
-        return array();
+        return $this->fetch($this->builder->getEvolutionTriggerById($id));
     }
 
     public function getAllEvolutionTriggers(): array
     {
-        // TODO: Implement getAllEvolutionTriggers() method.
-        return array();
+        return $this->fetch($this->builder->getAllEvolutionTriggers());
     }
 }

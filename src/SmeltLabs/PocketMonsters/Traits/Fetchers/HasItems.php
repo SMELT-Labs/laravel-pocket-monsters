@@ -6,91 +6,76 @@ trait HasItems
 {
     public function getItemByName(string $name): array
     {
-        // TODO: Implement getItemByName() method.
-        return array();
+        return $this->fetch($this->builder->getItemByName($name));
     }
 
     public function getItemById(int $id): array
     {
-        // TODO: Implement getItemById() method.
-        return array();
+        return $this->fetch($this->builder->getItemById($id));
     }
 
     public function getAllItems(): array
     {
-        // TODO: Implement getAllItems() method.
-        return array();
+        return $this->fetch($this->builder->getAllItems());
     }
 
     public function getItemAttributeByName(string $name): array
     {
-        // TODO: Implement getItemAttributeByName() method.
-        return array();
+        return $this->fetch($this->builder->getItemAttributeByName($name));
     }
 
     public function getItemAttributeById(int $id): array
     {
-        // TODO: Implement getItemAttributeById() method.
-        return array();
+        return $this->fetch($this->builder->getItemAttributeById($id));
     }
 
     public function getAllItemAttributes(): array
     {
-        // TODO: Implement getAllItemAttributes() method.
-        return array();
+        return $this->fetch($this->builder->getAllItemAttributes());
     }
 
     public function getItemCategoryByName(string $name): array
     {
-        // TODO: Implement getItemCategoryByName() method.
-        return array();
+        return $this->fetch($this->builder->getItemCategoryByName($name));
     }
 
     public function getItemCategoryById(int $id): array
     {
-        // TODO: Implement getItemCategoryById() method.
-        return array();
+        return $this->fetch($this->builder->getItemCategoryById($id));
     }
 
     public function getAllItemCategories(): array
     {
-        // TODO: Implement getAllItemCategories() method.
-        return array();
+        return $this->fetch($this->builder->getAllItemCategories());
     }
 
     public function getItemFlingEffectByName(string $name): array
     {
-        // TODO: Implement getItemFlingEffectByName() method.
-        return array();
+        return $this->fetch($this->builder->getItemFlingEffectByName($name));
     }
 
     public function getItemFlingEffectById(int $id): array
     {
-        // TODO: Implement getItemFlingEffectById() method.
-        return array();
+        return $this->fetch($this->builder->getItemFlingEffectById($id));
     }
 
     public function getAllItemFlingEffects(): array
     {
-        // TODO: Implement getAllItemFlingEffects() method.
-        return array();
+        return $this->fetch($this->builder->getAllItemFlingEffects());
     }
 
     public function getItemPocketByName(string $name): array
     {
-        // TODO: Implement getItemPocketByName() method.
-        return array();
+        return $this->fetch($this->builder->getItemPocketByName($name));
     }
 
     public function getItemPocketById(int $id): array
     {
-        // TODO: Implement getItemPocketById() method.
-        return array();
+        return $this->fetch($this->builder->getItemPocketById($id));
     }
 
     public function getAllItemPockets(): array
     {
-        // TODO: Implement getAllItemPockets() method.
-        return array();
+        return $this->fetch($this->builder->getAllItemPockets());
     }
 }
