@@ -6,19 +6,16 @@ trait HasUtility
 {
     public function getLanguageByName(string $name): array
     {
-        // TODO: Implement getLanguageByName() method.
-        return array();
+        return $this->fetch($this->builder->getLanguageByName($name));
     }
 
     public function getLanguageById(int $id): array
     {
-        // TODO: Implement getLanguageById() method.
-        return array();
+        return $this->fetch($this->builder->getLanguageById($id));
     }
 
     public function getAllLanguages(): array
     {
-        // TODO: Implement getAllLanguages() method.
-        return array();
+        return $this->fetch($this->builder->getAllLanguages());
     }
 }

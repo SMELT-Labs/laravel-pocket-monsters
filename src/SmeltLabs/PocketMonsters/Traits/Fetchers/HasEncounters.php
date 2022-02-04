@@ -1,51 +1,51 @@
 <?php
 
-namespace SmeltLabs\PocketMonsters\Traits\Endpoints;
+namespace SmeltLabs\PocketMonsters\Traits\Fetchers;
 
 trait HasEncounters
 {
-    public function getEncounterMethodByName(string $name): string
+    public function getEncounterMethodByName(string $name): array
     {
-        return $this->urlV2("encounter-method", $name);
+        return $this->fetch($this->builder->getEncounterMethodByName($name));
     }
 
-    public function getEncounterMethodById(int $id): string
+    public function getEncounterMethodById(int $id): array
     {
-        return $this->urlV2("encounter-method", $id);
+        return $this->fetch($this->builder->getEncounterMethodById($id));
     }
 
-    public function getAllEncounterMethods(): string
+    public function getAllEncounterMethods(): array
     {
-        return $this->urlV2("encounter-method");
+        return $this->fetch($this->builder->getAllEncounterMethods());
     }
 
-    public function getEncounterConditionByName(string $name): string
+    public function getEncounterConditionByName(string $name): array
     {
-        return $this->urlV2("encounter-condition", $name);
+        return $this->fetch($this->builder->getEncounterConditionByName($name));
     }
 
-    public function getEncounterConditionById(int $id): string
+    public function getEncounterConditionById(int $id): array
     {
-        return $this->urlV2("encounter-condition", $id);
+        return $this->fetch($this->builder->getEncounterConditionById($id));
     }
 
-    public function getAllEncounterConditions(): string
+    public function getAllEncounterConditions(): array
     {
-        return $this->urlV2("encounter-condition");
+        return $this->fetch($this->builder->getAllEncounterConditions());
     }
 
-    public function getEncounterCondValueByName(string $name): string
+    public function getEncounterCondValueByName(string $name): array
     {
-        return $this->urlV2("encounter-condition-value", $name);
+        return $this->fetch($this->builder->getEncounterCondValueByName($name));
     }
 
-    public function getEncounterCondValueById(int $id): string
+    public function getEncounterCondValueById(int $id): array
     {
-        return $this->urlV2("encounter-condition-value", $id);
+        return $this->fetch($this->builder->getEncounterCondValueById($id));
     }
 
-    public function getAllEncounterCondValues(): string
+    public function getAllEncounterCondValues(): array
     {
-        return $this->urlV2("encounter-condition-value");
+        return $this->fetch($this->builder->getAllEncounterCondValues());
     }
 }

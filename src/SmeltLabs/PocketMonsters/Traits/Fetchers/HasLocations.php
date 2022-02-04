@@ -6,73 +6,61 @@ trait HasLocations
 {
     public function getLocationByName(string $name): array
     {
-        // TODO: Implement getLocationByName() method.
-        return array();
+        return $this->fetch($this->builder->getLocationByName($name));
     }
 
     public function getLocationById(int $id): array
     {
-        // TODO: Implement getLocationById() method.
-        return array();
+        return $this->fetch($this->builder->getLocationById($id));
     }
 
     public function getAllLocations(): array
     {
-        // TODO: Implement getAllLocations() method.
-        return array();
+        return $this->fetch($this->builder->getAllLocations());
     }
 
     public function getLocationAreaByName(string $name): array
     {
-        // TODO: Implement getLocationAreaByName() method.
-        return array();
+        return $this->fetch($this->builder->getLocationAreaByName($name));
     }
 
     public function getLocationAreaById(int $id): array
     {
-        // TODO: Implement getLocationAreaById() method.
-        return array();
+        return $this->fetch($this->builder->getLocationAreaById($id));
     }
 
     public function getAllLocationAreas(): array
     {
-        // TODO: Implement getAllLocationAreas() method.
-        return array();
+        return $this->fetch($this->builder->getAllLocationAreas());
     }
 
     public function getPalParkAreaByName(string $name): array
     {
-        // TODO: Implement getPalParkAreaByName() method.
-        return array();
+        return $this->fetch($this->builder->getPalParkAreaByName($name));
     }
 
     public function getPalParkAreaById(int $id): array
     {
-        // TODO: Implement getPalParkAreaById() method.
-        return array();
+        return $this->fetch($this->builder->getPalParkAreaById($id));
     }
 
     public function getAllPalParkAreas(): array
     {
-        // TODO: Implement getAllPalParkAreas() method.
-        return array();
+        return $this->fetch($this->builder->getAllPalParkAreas());
     }
 
     public function getRegionByName(string $name): array
     {
-        // TODO: Implement getRegionByName() method.
-        return array();
+        return $this->fetch($this->builder->getRegionByName($name));
     }
 
     public function getRegionById(int $id): array
     {
-        // TODO: Implement getRegionById() method.
-        return array();
+        return $this->fetch($this->builder->getRegionById($id));
     }
 
     public function getAllRegions(): array
     {
-        // TODO: Implement getAllRegions() method.
-        return array();
+        return $this->fetch($this->builder->getAllRegions());
     }
 }

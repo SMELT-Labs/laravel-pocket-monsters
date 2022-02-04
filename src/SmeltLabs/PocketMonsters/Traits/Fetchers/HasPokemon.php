@@ -6,277 +6,231 @@ trait HasPokemon
 {
     public function getAbilityByName(string $name): array
     {
-        // TODO: Implement getAbilityByName() method.
-        return array();
+        return $this->fetch($this->builder->getAbilityByName($name));
     }
 
     public function getAbilityById(int $id): array
     {
-        // TODO: Implement getAbilityById() method.
-        return array();
+        return $this->fetch($this->builder->getAbilityById($id));
     }
 
     public function getAllAbilities(): array
     {
-        // TODO: Implement getAllAbilities() method.
-        return array();
+        return $this->fetch($this->builder->getAllAbilities());
     }
 
     public function getCharacteristicById(int $id): array
     {
-        // TODO: Implement getCharacteristicById() method.
-        return array();
+        return $this->fetch($this->builder->getCharacteristicById($id));
     }
 
     public function getAllCharacteristics(): array
     {
-        // TODO: Implement getAllCharacteristics() method.
-        return array();
+        return $this->fetch($this->builder->getAllCharacteristics());
     }
 
     public function getEggGroupByName(string $name): array
     {
-        // TODO: Implement getEggGroupByName() method.
-        return array();
+        return $this->fetch($this->builder->getEggGroupByName($name));
     }
 
     public function getEggGroupById(int $id): array
     {
-        // TODO: Implement getEggGroupById() method.
-        return array();
+        return $this->fetch($this->builder->getEggGroupById($id));
     }
 
     public function getAllEggGroups(): array
     {
-        // TODO: Implement getAllEggGroups() method.
-        return array();
+        return $this->fetch($this->builder->getAllEggGroups());
     }
 
     public function getGenderByName(string $name): array
     {
-        // TODO: Implement getGenderByName() method.
-        return array();
+        return $this->fetch($this->builder->getGenderByName($name));
     }
 
     public function getGenderById(int $id): array
     {
-        // TODO: Implement getGenderById() method.
-        return array();
+        return $this->fetch($this->builder->getGenderById($id));
     }
 
     public function getAllGenders(): array
     {
-        // TODO: Implement getAllGenders() method.
-        return array();
+        return $this->fetch($this->builder->getAllGenders());
     }
 
     public function getGrowthRateByName(string $name): array
     {
-        // TODO: Implement getGrowthRateByName() method.
-        return array();
+        return $this->fetch($this->builder->getGrowthRateByName($name));
     }
 
     public function getGrowthRateById(int $id): array
     {
-        // TODO: Implement getGrowthRateById() method.
-        return array();
+        return $this->fetch($this->builder->getGrowthRateById($id));
     }
 
     public function getAllGrowthRates(): array
     {
-        // TODO: Implement getAllGrowthRates() method.
-        return array();
+        return $this->fetch($this->builder->getAllGrowthRates());
     }
 
     public function getNatureByName(string $name): array
     {
-        // TODO: Implement getNatureByName() method.
-        return array();
+        return $this->fetch($this->builder->getNatureByName($name));
     }
 
     public function getNatureById(int $id): array
     {
-        // TODO: Implement getNatureById() method.
-        return array();
+        return $this->fetch($this->builder->getNatureById($id));
     }
 
     public function getAllNatures(): array
     {
-        // TODO: Implement getAllNatures() method.
-        return array();
+        return $this->fetch($this->builder->getAllNatures());
     }
 
     public function getPokeathlonStatByName(string $name): array
     {
-        // TODO: Implement getPokeathlonStatByName() method.
-        return array();
+        return $this->fetch($this->builder->getPokeathlonStatByName($name));
     }
 
     public function getPokeathlonStatById(int $id): array
     {
-        // TODO: Implement getPokeathlonStatById() method.
-        return array();
+        return $this->fetch($this->builder->getPokeathlonStatById($id));
     }
 
     public function getAllPokeathlonStats(): array
     {
-        // TODO: Implement getAllPokeathlonStats() method.
-        return array();
+        return $this->fetch($this->builder->getAllPokeathlonStats());
     }
 
     public function getPokemonByName(string $name): array
     {
-        // TODO: Implement getPokemonByName() method.
-        return array();
+        return $this->fetch($this->builder->getPokemonByName($name));
     }
 
     public function getPokemonById(int $id): array
     {
-        // TODO: Implement getPokemonById() method.
-        return array();
+        return $this->fetch($this->builder->getPokemonById($id));
     }
 
     public function getAllPokemon(): array
     {
-        // TODO: Implement getAllPokemon() method.
-        return array();
+        return $this->fetch($this->builder->getAllPokemon());
     }
 
     public function getPokemonLocationAreasByName(string $name): array
     {
-        // TODO: Implement getPokemonLocationAreaByName() method.
-        return array();
+        return $this->fetch($this->builder->getPokemonLocationAreasByName($name));
     }
 
     public function getPokemonLocationAreasById(int $id): array
     {
-        // TODO: Implement getPokemonLocationAreaById() method.
-        return array();
+        return $this->fetch($this->builder->getPokemonLocationAreasById($id));
     }
 
     public function getPokemonColorByName(string $name): array
     {
-        // TODO: Implement getPokemonColorByName() method.
-        return array();
+        return $this->fetch($this->builder->getPokemonColorByName($name));
     }
 
     public function getPokemonColorById(int $id): array
     {
-        // TODO: Implement getPokemonColorById() method.
-        return array();
+        return $this->fetch($this->builder->getPokemonColorById($id));
     }
 
     public function getAllPokemonColors(): array
     {
-        // TODO: Implement getAllPokemonColors() method.
-        return array();
+        return $this->fetch($this->builder->getAllPokemonColors());
     }
 
     public function getPokemonFormByName(string $name): array
     {
-        // TODO: Implement getPokemonFormByName() method.
-        return array();
+        return $this->fetch($this->builder->getPokemonFormByName($name));
     }
 
     public function getPokemonFormById(int $id): array
     {
-        // TODO: Implement getPokemonFormById() method.
-        return array();
+        return $this->fetch($this->builder->getPokemonFormById($id));
     }
 
     public function getAllPokemonForms(): array
     {
-        // TODO: Implement getAllPokemonForms() method.
-        return array();
+        return $this->fetch($this->builder->getAllPokemonForms());
     }
 
     public function getPokemonHabitatByName(string $name): array
     {
-        // TODO: Implement getPokemonHabitatByName() method.
-        return array();
+        return $this->fetch($this->builder->getPokemonHabitatByName($name));
     }
 
     public function getPokemonHabitatById(int $id): array
     {
-        // TODO: Implement getPokemonHabitatById() method.
-        return array();
+        return $this->fetch($this->builder->getPokemonHabitatById($id));
     }
 
     public function getAllPokemonHabitats(): array
     {
-        // TODO: Implement getAllPokemonHabitats() method.
-        return array();
+        return $this->fetch($this->builder->getAllPokemonHabitats());
     }
 
     public function getPokemonShapeByName(string $name): array
     {
-        // TODO: Implement getPokemonShapeByName() method.
-        return array();
+        return $this->fetch($this->builder->getPokemonShapeByName($name));
     }
 
     public function getPokemonShapeById(int $id): array
     {
-        // TODO: Implement getPokemonShapeById() method.
-        return array();
+        return $this->fetch($this->builder->getPokemonShapeById($id));
     }
 
     public function getAllPokemonShapes(): array
     {
-        // TODO: Implement getAllPokemonShapes() method.
-        return array();
+        return $this->fetch($this->builder->getAllPokemonShapes());
     }
 
     public function getPokemonSpeciesByName(string $name): array
     {
-        // TODO: Implement getPokemonSpeciesByName() method.
-        return array();
+        return $this->fetch($this->builder->getPokemonSpeciesByName($name));
     }
 
     public function getPokemonSpeciesById(int $id): array
     {
-        // TODO: Implement getPokemonSpeciesById() method.
-        return array();
+        return $this->fetch($this->builder->getPokemonSpeciesById($id));
     }
 
     public function getAllPokemonSpecies(): array
     {
-        // TODO: Implement getAllPokemonSpecies() method.
-        return array();
+        return $this->fetch($this->builder->getAllPokemonSpecies());
     }
 
     public function getStatByName(string $name): array
     {
-        // TODO: Implement getStatByName() method.
-        return array();
+        return $this->fetch($this->builder->getStatByName($name));
     }
 
     public function getStatById(int $id): array
     {
-        // TODO: Implement getStatById() method.
-        return array();
+        return $this->fetch($this->builder->getStatById($id));
     }
 
     public function getAllStats(): array
     {
-        // TODO: Implement getAllStats() method.
-        return array();
+        return $this->fetch($this->builder->getAllStats());
     }
 
     public function getTypeByName(string $name): array
     {
-        // TODO: Implement getTypeByName() method.
-        return array();
+        return $this->fetch($this->builder->getTypeByName($name));
     }
 
     public function getTypeById(int $id): array
     {
-        // TODO: Implement getTypeById() method.
-        return array();
+        return $this->fetch($this->builder->getTypeById($id));
     }
 
     public function getAllTypes(): array
     {
-        // TODO: Implement getAllTypes() method.
-        return array();
+        return $this->fetch($this->builder->getAllTypes());
     }
 }
