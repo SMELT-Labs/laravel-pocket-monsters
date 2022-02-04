@@ -2,712 +2,877 @@
 
 namespace SmeltLabs\PocketMonsters;
 
-use PHPUnit\Framework\TestCase;
+use Illuminate\Support\Facades\Http;
+use SmeltLabs\PocketMonsters\Traits\Testing\HasDummyData;
+use Tests\TestCase;
 
 class DataFetcherTest extends TestCase
 {
-    public function testGetBerryByName(string $name): void
+
+    use HasDummyData;
+
+    private EndpointBuilder $endpoint;
+    private DataFetcher $fetcher;
+
+    public function setUp(): void
     {
-        // TODO: Implement getBerryByName() method.
+        parent::setUp();
+        $this->endpoint = new EndpointBuilder();
+        $this->fetcher = new DataFetcher();
     }
 
-    public function testGetBerryById(int $id): void
+    private function assertUrlOk(string $url, array $result) {
+        echo $url;
+        $response = Http::get($url);
+        $this->assertEquals(200, $response->status());
+        $json = $response->json() ?? [];
+        $this->assertEquals($json, $result);
+    }
+
+
+    public function testGetBerryByName(): void
     {
-        // TODO: Implement getBerryById() method.
+        $this->assertUrlOk($this->endpoint->getBerryByName($this->berry),
+            $this->fetcher->getBerryByName($this->berry));
+    }
+
+    public function testGetBerryById(): void
+    {
+        $this->assertUrlOk($this->endpoint->getBerryById($this->integer),
+            $this->fetcher->getBerryById($this->integer));
     }
 
     public function testGetAllBerries(): void
     {
-        // TODO: Implement getAllBerries() method.
+        $this->assertUrlOk($this->endpoint->getAllBerries(),
+            $this->fetcher->getAllBerries());
     }
 
-    public function testGetBerryFirmnessTypeByName(string $name): void
+    public function testGetBerryFirmnessTypeByName(): void
     {
-        // TODO: Implement getBerryFirmnessTypeByName() method.
+        $this->assertUrlOk($this->endpoint->getBerryFirmnessTypeByName($this->berryFirmness),
+            $this->fetcher->getBerryFirmnessTypeByName($this->berryFirmness));
     }
 
-    public function testGetBerryFirmnessTypeById(int $id): void
+    public function testGetBerryFirmnessTypeById(): void
     {
-        // TODO: Implement getBerryFirmnessTypeById() method.
+        $this->assertUrlOk($this->endpoint->  getBerryFirmnessTypeById($this->integer),
+            $this->fetcher->  getBerryFirmnessTypeById($this->integer));
     }
 
     public function testGetAllBerryFirmnessTypes(): void
     {
-        // TODO: Implement getAllBerryFirmnessTypes() method.
+        $this->assertUrlOk($this->endpoint->getAllBerryFirmnessTypes(),
+            $this->fetcher->getAllBerryFirmnessTypes());
     }
 
-    public function testGetBerryFlavorByName(string $name): void
+    public function testGetBerryFlavorByName(): void
     {
-        // TODO: Implement getBerryFlavorByName() method.
+        $this->assertUrlOk($this->endpoint->getBerryFlavorByName($this->berryFlavor),
+            $this->fetcher->getBerryFlavorByName($this->berryFlavor));
     }
 
-    public function testGetBerryFlavorById(int $id): void
+    public function testGetBerryFlavorById(): void
     {
-        // TODO: Implement getBerryFlavorById() method.
+        $this->assertUrlOk($this->endpoint->getBerryFlavorById($this->integer),
+            $this->fetcher->getBerryFlavorById($this->integer));
     }
 
     public function testGetAllBerryFlavors(): void
     {
-        // TODO: Implement getAllBerryFlavors() method.
+        $this->assertUrlOk($this->endpoint->getAllBerryFlavors(),
+            $this->fetcher->getAllBerryFlavors());
     }
 
-    public function testGetContestTypeByName(string $name): void
+    public function testGetContestTypeByName(): void
     {
-        // TODO: Implement getContestTypeByName() method.
+        $this->assertUrlOk($this->endpoint->getContestTypeByName($this->contestType),
+            $this->fetcher->getContestTypeByName($this->contestType));
     }
 
-    public function testGetContestTypeById(int $id): void
+    public function testGetContestTypeById(): void
     {
-        // TODO: Implement getContestTypeById() method.
+        $this->assertUrlOk($this->endpoint->getContestTypeById($this->integer),
+            $this->fetcher->getContestTypeById($this->integer));
     }
 
     public function testGetAllContestTypes(): void
     {
-        // TODO: Implement getAllContestTypes() method.
+        $this->assertUrlOk($this->endpoint->getAllContestTypes(),
+            $this->fetcher->getAllContestTypes());
     }
 
-    public function testGetContestEffectById(int $id): void
+    public function testGetContestEffectById(): void
     {
-        // TODO: Implement getContestEffectById() method.
+        $this->assertUrlOk($this->endpoint->getContestEffectById($this->integer),
+            $this->fetcher->getContestEffectById($this->integer));
     }
 
     public function testGetAllContestEffects(): void
     {
-        // TODO: Implement getAllContestEffects() method.
+        $this->assertUrlOk($this->endpoint->getAllContestEffects(),
+            $this->fetcher->getAllContestEffects());
     }
 
-    public function testGetSuperContestEffectById(int $id): void
+    public function testGetSuperContestEffectById(): void
     {
-        // TODO: Implement getSuperContestEffectById() method.
+        $this->assertUrlOk($this->endpoint->getSuperContestEffectById($this->integer),
+            $this->fetcher->getSuperContestEffectById($this->integer));
     }
 
     public function testGetAllSuperContestEffects(): void
     {
-        // TODO: Implement getAllSuperContestEffects() method.
+        $this->assertUrlOk($this->endpoint->getAllSuperContestEffects(),
+            $this->fetcher->getAllSuperContestEffects());
     }
 
-    public function testGetEncounterMethodByName(string $name): void
+    public function testGetEncounterMethodByName(): void
     {
-        // TODO: Implement getEncounterMethodByName() method.
+        $this->assertUrlOk($this->endpoint->getEncounterMethodByName($this->encounterMethod),
+            $this->fetcher->getEncounterMethodByName($this->encounterMethod));
     }
 
-    public function testGetEncounterMethodById(int $id): void
+    public function testGetEncounterMethodById(): void
     {
-        // TODO: Implement getEncounterMethodById() method.
+        $this->assertUrlOk($this->endpoint->getEncounterMethodById($this->integer),
+            $this->fetcher->getEncounterMethodById($this->integer));
     }
 
     public function testGetAllEncounterMethods(): void
     {
-        // TODO: Implement getAllEncounterMethods() method.
+        $this->assertUrlOk($this->endpoint->getAllEncounterMethods(),
+            $this->fetcher->getAllEncounterMethods());
     }
 
-    public function testGetEncounterConditionByName(string $name): void
+    public function testGetEncounterConditionByName(): void
     {
-        // TODO: Implement getEncounterConditionByName() method.
+        $this->assertUrlOk($this->endpoint->getEncounterConditionByName($this->encounterCondition),
+            $this->fetcher->getEncounterConditionByName($this->encounterCondition));
     }
 
-    public function testGetEncounterConditionById(int $id): void
+    public function testGetEncounterConditionById(): void
     {
-        // TODO: Implement getEncounterConditionById() method.
+        $this->assertUrlOk($this->endpoint->getEncounterConditionById($this->integer),
+            $this->fetcher->getEncounterConditionById($this->integer));
     }
 
     public function testGetAllEncounterConditions(): void
     {
-        // TODO: Implement getAllEncounterConditions() method.
+        $this->assertUrlOk($this->endpoint->getAllEncounterConditions(),
+            $this->fetcher->getAllEncounterConditions());
     }
 
-    public function testGetEncounterCondValueByName(string $name): void
+    public function testGetEncounterCondValueByName(): void
     {
-        // TODO: Implement getEncounterCondValueByName() method.
+        $this->assertUrlOk($this->endpoint->getEncounterCondValueByName($this->encounterCondValue),
+            $this->fetcher->getEncounterCondValueByName($this->encounterCondValue));
     }
 
-    public function testGetEncounterCondValueById(int $id): void
+    public function testGetEncounterCondValueById(): void
     {
-        // TODO: Implement getEncounterCondValueById() method.
+        $this->assertUrlOk($this->endpoint->getEncounterConditionById($this->integer),
+            $this->fetcher->getEncounterConditionById($this->integer));
     }
 
     public function testGetAllEncounterCondValues(): void
     {
-        // TODO: Implement getAllEncounterCondValues() method.
+        $this->assertUrlOk($this->endpoint->getAllEncounterCondValues(),
+            $this->fetcher->getAllEncounterCondValues());
     }
 
-    public function testGetEvolutionChainById(int $id): void
+    public function testGetEvolutionChainById(): void
     {
-        // TODO: Implement getEvolutionChainById() method.
+        $this->assertUrlOk($this->endpoint->getEvolutionChainById($this->integer),
+            $this->fetcher->getEvolutionChainById($this->integer));
     }
 
     public function testGetAllEvolutionChains(): void
     {
-        // TODO: Implement getAllEvolutionChains() method.
+        $this->assertUrlOk($this->endpoint->getAllEvolutionChains(),
+            $this->fetcher->getAllEvolutionChains());
     }
 
-    public function testGetEvolutionTriggerByName(string $name): void
+    public function testGetEvolutionTriggerByName(): void
     {
-        // TODO: Implement getEvolutionTriggerByName() method.
+        $this->assertUrlOk($this->endpoint->getEvolutionTriggerByName($this->evolutionTrigger),
+            $this->fetcher->getEvolutionTriggerByName($this->evolutionTrigger));
     }
 
-    public function testGetEvolutionTriggerById(int $id): void
+    public function testGetEvolutionTriggerById(): void
     {
-        // TODO: Implement getEvolutionTriggerById() method.
+        $this->assertUrlOk($this->endpoint->getEvolutionTriggerById($this->integer),
+            $this->fetcher->getEvolutionTriggerById($this->integer));
     }
 
     public function testGetAllEvolutionTriggers(): void
     {
-        // TODO: Implement getAllEvolutionTriggers() method.
+        $this->assertUrlOk($this->endpoint->getAllEvolutionTriggers(),
+            $this->fetcher->getAllEvolutionTriggers());
     }
 
-    public function testGetGenerationByName(string $name): void
+    public function testGetGenerationByName(): void
     {
-        // TODO: Implement getGenerationByName() method.
+        $this->assertUrlOk($this->endpoint->getGenerationByName($this->generation),
+            $this->fetcher->getGenerationByName($this->generation));
     }
 
-    public function testGetGenerationById(int $id): void
+    public function testGetGenerationById(): void
     {
-        // TODO: Implement getGenerationById() method.
+        $this->assertUrlOk($this->endpoint->getGenerationById($this->integer),
+            $this->fetcher->getGenerationById($this->integer));
     }
 
     public function testGetAllGenerations(): void
     {
-        // TODO: Implement getAllGenerations() method.
+        $this->assertUrlOk($this->endpoint->getAllGenerations(),
+            $this->fetcher->getAllGenerations());
     }
 
-    public function testGetPokedexByName(string $name): void
+    public function testGetPokedexByName(): void
     {
-        // TODO: Implement getPokedexByName() method.
+        $this->assertUrlOk($this->endpoint->getPokedexByName($this->pokedex),
+            $this->fetcher->getPokedexByName($this->pokedex));
     }
 
-    public function testGetPokedexById(int $id): void
+    public function testGetPokedexById(): void
     {
-        // TODO: Implement getPokedexById() method.
+        $this->assertUrlOk($this->endpoint->getPokedexById($this->integer),
+            $this->fetcher->getPokedexById($this->integer));
     }
 
     public function testGetAllPokedexs(): void
     {
-        // TODO: Implement getAllPokedexs() method.
+        $this->assertUrlOk($this->endpoint->getAllPokedexs(),
+            $this->fetcher->getAllPokedexs());
     }
 
-    public function testGetVersionByName(string $name): void
+    public function testGetVersionByName(): void
     {
-        // TODO: Implement getVersionByName() method.
+        $this->assertUrlOk($this->endpoint->getVersionByName($this->version),
+            $this->fetcher->getVersionByName($this->version));
     }
 
-    public function testGetVersionById(int $id): void
+    public function testGetVersionById(): void
     {
-        // TODO: Implement getVersionById() method.
+        $this->assertUrlOk($this->endpoint->getVersionById($this->integer),
+            $this->fetcher->getVersionById($this->integer));
     }
 
     public function testGetAllVersions(): void
     {
-        // TODO: Implement getAllVersions() method.
+        $this->assertUrlOk($this->endpoint->getAllVersions(),
+            $this->fetcher->getAllVersions());
     }
 
-    public function testGetVersionGroupByName(string $name): void
+    public function testGetVersionGroupByName(): void
     {
-        // TODO: Implement getVersionGroupByName() method.
+        $this->assertUrlOk($this->endpoint->getVersionGroupByName($this->versionGroup),
+            $this->fetcher->getVersionGroupByName($this->versionGroup));
     }
 
-    public function testGetVersionGroupById(int $id): void
+    public function testGetVersionGroupById(): void
     {
-        // TODO: Implement getVersionGroupById() method.
+        $this->assertUrlOk($this->endpoint->getVersionGroupById($this->integer),
+            $this->fetcher->getVersionGroupById($this->integer));
     }
 
     public function testGetAllVersionGroups(): void
     {
-        // TODO: Implement getAllVersionGroups() method.
+        $this->assertUrlOk($this->endpoint->getAllVersionGroups(),
+            $this->fetcher->getAllVersionGroups());
     }
 
-    public function testGetItemByName(string $name): void
+    public function testGetItemByName(): void
     {
-        // TODO: Implement getItemByName() method.
+        $this->assertUrlOk($this->endpoint->getItemByName($this->item),
+            $this->fetcher->getItemByName($this->item));
     }
 
-    public function testGetItemById(int $id): void
+    public function testGetItemById(): void
     {
-        // TODO: Implement getItemById() method.
+        $this->assertUrlOk($this->endpoint->getItemById($this->integer),
+            $this->fetcher->getItemById($this->integer));
     }
 
     public function testGetAllItems(): void
     {
-        // TODO: Implement getAllItems() method.
+        $this->assertUrlOk($this->endpoint->getAllItems(),
+            $this->fetcher->getAllItems());
     }
 
-    public function testGetItemAttributeByName(string $name): void
+    public function testGetItemAttributeByName(): void
     {
-        // TODO: Implement getItemAttributeByName() method.
+        $this->assertUrlOk($this->endpoint->getItemAttributeByName($this->itemAttribute),
+            $this->fetcher->getItemAttributeByName($this->itemAttribute));
     }
 
-    public function testGetItemAttributeById(int $id): void
+    public function testGetItemAttributeById(): void
     {
-        // TODO: Implement getItemAttributeById() method.
+        $this->assertUrlOk($this->endpoint->getItemAttributeById($this->integer),
+            $this->fetcher->getItemAttributeById($this->integer));
     }
 
     public function testGetAllItemAttributes(): void
     {
-        // TODO: Implement getAllItemAttributes() method.
+        $this->assertUrlOk($this->endpoint->getAllItemAttributes(),
+            $this->fetcher->getAllItemAttributes());
     }
 
-    public function testGetItemCategoryByName(string $name): void
+    public function testGetItemCategoryByName(): void
     {
-        // TODO: Implement getItemCategoryByName() method.
+        $this->assertUrlOk($this->endpoint->getItemCategoryByName($this->itemCategory),
+            $this->fetcher->getItemCategoryByName($this->itemCategory));
     }
 
-    public function testGetItemCategoryById(int $id): void
+    public function testGetItemCategoryById(): void
     {
-        // TODO: Implement getItemCategoryById() method.
+        $this->assertUrlOk($this->endpoint->getItemCategoryById($this->integer),
+            $this->fetcher->getItemCategoryById($this->integer));
     }
 
     public function testGetAllItemCategories(): void
     {
-        // TODO: Implement getAllItemCategories() method.
+        $this->assertUrlOk($this->endpoint->getAllItemCategories(),
+            $this->fetcher->getAllItemCategories());
     }
 
-    public function testGetItemFlingEffectByName(string $name): void
+    public function testGetItemFlingEffectByName(): void
     {
-        // TODO: Implement getItemFlingEffectByName() method.
+        $this->assertUrlOk($this->endpoint->getItemFlingEffectByName($this->itemFlingEffect),
+            $this->fetcher->getItemFlingEffectByName($this->itemFlingEffect));
     }
 
-    public function testGetItemFlingEffectById(int $id): void
+    public function testGetItemFlingEffectById(): void
     {
-        // TODO: Implement getItemFlingEffectById() method.
+        $this->assertUrlOk($this->endpoint->getItemFlingEffectById($this->integer),
+            $this->fetcher->getItemFlingEffectById($this->integer));
     }
 
     public function testGetAllItemFlingEffects(): void
     {
-        // TODO: Implement getAllItemFlingEffects() method.
+        $this->assertUrlOk($this->endpoint->getAllItemFlingEffects(),
+            $this->fetcher->getAllItemFlingEffects());
     }
 
-    public function testGetItemPocketByName(string $name): void
+    public function testGetItemPocketByName(): void
     {
-        // TODO: Implement getItemPocketByName() method.
+        $this->assertUrlOk($this->endpoint->getItemPocketByName($this->itemPocket),
+            $this->fetcher->getItemPocketByName($this->itemPocket));
     }
 
-    public function testGetItemPocketById(int $id): void
+    public function testGetItemPocketById(): void
     {
-        // TODO: Implement getItemPocketById() method.
+        $this->assertUrlOk($this->endpoint->getItemPocketById($this->integer),
+            $this->fetcher->getItemPocketById($this->integer));
     }
 
     public function testGetAllItemPockets(): void
     {
-        // TODO: Implement getAllItemPockets() method.
+        $this->assertUrlOk($this->endpoint->getAllItemPockets(),
+            $this->fetcher->getAllItemPockets());
     }
 
-    public function testGetLocationByName(string $name): void
+    public function testGetLocationByName(): void
     {
-        // TODO: Implement getLocationByName() method.
+        $this->assertUrlOk($this->endpoint->getLocationByName($this->location),
+            $this->fetcher->getLocationByName($this->location));
     }
 
-    public function testGetLocationById(int $id): void
+    public function testGetLocationById(): void
     {
-        // TODO: Implement getLocationById() method.
+        $this->assertUrlOk($this->endpoint->getLocationById($this->integer),
+            $this->fetcher->getLocationById($this->integer));
     }
 
     public function testGetAllLocations(): void
     {
-        // TODO: Implement getAllLocations() method.
+        $this->assertUrlOk($this->endpoint->getAllLocations(),
+            $this->fetcher->getAllLocations());
     }
 
-    public function testGetLocationAreaByName(string $name): void
+    public function testGetLocationAreaByName(): void
     {
-        // TODO: Implement getLocationAreaByName() method.
+        $this->assertUrlOk($this->endpoint->getLocationAreaByName($this->locationArea),
+            $this->fetcher->getLocationAreaByName($this->locationArea));
     }
 
-    public function testGetLocationAreaById(int $id): void
+    public function testGetLocationAreaById(): void
     {
-        // TODO: Implement getLocationAreaById() method.
+        $this->assertUrlOk($this->endpoint->getLocationAreaById($this->integer),
+            $this->fetcher->getLocationAreaById($this->integer));
     }
 
     public function testGetAllLocationAreas(): void
     {
-        // TODO: Implement getAllLocationAreas() method.
+        $this->assertUrlOk($this->endpoint->getAllLocationAreas(),
+            $this->fetcher->getAllLocationAreas());
     }
 
-    public function testGetPalParkAreaByName(string $name): void
+    public function testGetPalParkAreaByName(): void
     {
-        // TODO: Implement getPalParkAreaByName() method.
+        $this->assertUrlOk($this->endpoint->getPalParkAreaByName($this->palParkArea),
+            $this->fetcher->getPalParkAreaByName($this->palParkArea));
     }
 
-    public function testGetPalParkAreaById(int $id): void
+    public function testGetPalParkAreaById(): void
     {
-        // TODO: Implement getPalParkAreaById() method.
+        $this->assertUrlOk($this->endpoint->getPalParkAreaById($this->integer),
+            $this->fetcher->getPalParkAreaById($this->integer));
     }
 
     public function testGetAllPalParkAreas(): void
     {
-        // TODO: Implement getAllPalParkAreas() method.
+        $this->assertUrlOk($this->endpoint->getAllPalParkAreas(),
+            $this->fetcher->getAllPalParkAreas());
     }
 
-    public function testGetRegionByName(string $name): void
+    public function testGetRegionByName(): void
     {
-        // TODO: Implement getRegionByName() method.
+        $this->assertUrlOk($this->endpoint->getRegionByName($this->region),
+            $this->fetcher->getRegionByName($this->region));
     }
 
-    public function testGetRegionById(int $id): void
+    public function testGetRegionById(): void
     {
-        // TODO: Implement getRegionById() method.
+        $this->assertUrlOk($this->endpoint->getRegionById($this->integer),
+            $this->fetcher->getRegionById($this->integer));
     }
 
     public function testGetAllRegions(): void
     {
-        // TODO: Implement getAllRegions() method.
+        $this->assertUrlOk($this->endpoint->getAllRegions(),
+            $this->fetcher->getAllRegions());
     }
 
-    public function testGetMachineById(int $id): void
+    public function testGetMachineById(): void
     {
-        // TODO: Implement getMachineById() method.
+        $this->assertUrlOk($this->endpoint->getMachineById($this->integer),
+            $this->fetcher->getMachineById($this->integer));
     }
 
     public function testGetAllMachines(): void
     {
-        // TODO: Implement getAllMachines() method.
+        $this->assertUrlOk($this->endpoint->getAllMachines(),
+            $this->fetcher->getAllMachines());
     }
 
-    public function testGetMoveByName(string $name): void
+    public function testGetMoveByName(): void
     {
-        // TODO: Implement getMoveByName() method.
+        $this->assertUrlOk($this->endpoint->getMoveByName($this->move),
+            $this->fetcher->getMoveByName($this->move));
     }
 
-    public function testGetMoveById(int $id): void
+    public function testGetMoveById(): void
     {
-        // TODO: Implement getMoveById() method.
+        $this->assertUrlOk($this->endpoint->getMoveById($this->integer),
+            $this->fetcher->getMoveById($this->integer));
     }
 
     public function testGetAllMoves(): void
     {
-        // TODO: Implement getAllMoves() method.
+        $this->assertUrlOk($this->endpoint->getAllMoves(),
+            $this->fetcher->getAllMoves());
     }
 
-    public function testGetMoveAilmentByName(string $name): void
+    public function testGetMoveAilmentByName(): void
     {
-        // TODO: Implement getMoveAilmentByName() method.
+        $this->assertUrlOk($this->endpoint->getMoveAilmentByName($this->moveAilment),
+            $this->fetcher->getMoveAilmentByName($this->moveAilment));
     }
 
-    public function testGetMoveAilmentById(int $id): void
+    public function testGetMoveAilmentById(): void
     {
-        // TODO: Implement getMoveAilmentById() method.
+        $this->assertUrlOk($this->endpoint->getMoveAilmentById($this->integer),
+            $this->fetcher->getMoveAilmentById($this->integer));
     }
 
     public function testGetAllMoveAilments(): void
     {
-        // TODO: Implement getAllMoveAilments() method.
+        $this->assertUrlOk($this->endpoint->getAllMoveAilments(),
+            $this->fetcher->getAllMoveAilments());
     }
 
-    public function testGetMoveBattleStyleByName(string $name): void
+    public function testGetMoveBattleStyleByName(): void
     {
-        // TODO: Implement getMoveBattleStyleByName() method.
+        $this->assertUrlOk($this->endpoint->getMoveBattleStyleByName($this->moveBattleStyle),
+            $this->fetcher->getMoveBattleStyleByName($this->moveBattleStyle));
     }
 
-    public function testGetMoveBattleStyleById(int $id): void
+    public function testGetMoveBattleStyleById(): void
     {
-        // TODO: Implement getMoveBattleStyleById() method.
+        $this->assertUrlOk($this->endpoint->getMoveBattleStyleById($this->integer),
+            $this->fetcher->getMoveBattleStyleById($this->integer));
     }
 
     public function testGetAllMoveBattleStyles(): void
     {
-        // TODO: Implement getAllMoveBattleStyles() method.
+        $this->assertUrlOk($this->endpoint->getAllMoveBattleStyles(),
+            $this->fetcher->getAllMoveBattleStyles());
     }
 
-    public function testGetMoveCategoryByName(string $name): void
+    public function testGetMoveCategoryByName(): void
     {
-        // TODO: Implement getMoveCategoryByName() method.
+        $this->assertUrlOk($this->endpoint->getMoveCategoryByName($this->moveCategory),
+            $this->fetcher->getMoveCategoryByName($this->moveCategory));
     }
 
-    public function testGetMoveCategoryById(int $id): void
+    public function testGetMoveCategoryById(): void
     {
-        // TODO: Implement getMoveCategoryById() method.
+        $this->assertUrlOk($this->endpoint->getMoveCategoryById($this->integer),
+            $this->fetcher->getMoveCategoryById($this->integer));
     }
 
     public function testGetAllMoveCategories(): void
     {
-        // TODO: Implement getAllMoveCategories() method.
+        $this->assertUrlOk($this->endpoint->getAllMoveCategories(),
+            $this->fetcher->getAllMoveCategories());
     }
 
-    public function testGetMoveDamageClassByName(string $name): void
+    public function testGetMoveDamageClassByName(): void
     {
-        // TODO: Implement getMoveDamageClassByName() method.
+        $this->assertUrlOk($this->endpoint->getMoveDamageClassByName($this->moveDamageClass),
+            $this->fetcher->getMoveDamageClassByName($this->moveDamageClass));
     }
 
-    public function testGetMoveDamageClassById(int $id): void
+    public function testGetMoveDamageClassById(): void
     {
-        // TODO: Implement getMoveDamageClassById() method.
+        $this->assertUrlOk($this->endpoint->getMoveDamageClassById($this->integer),
+            $this->fetcher->getMoveDamageClassById($this->integer));
     }
 
     public function testGetAllMoveDamageClasses(): void
     {
-        // TODO: Implement getAllMoveDamageClasses() method.
+        $this->assertUrlOk($this->endpoint->getAllMoveDamageClasses(),
+            $this->fetcher->getAllMoveDamageClasses());
     }
 
-    public function testGetMoveLearnMethodByName(string $name): void
+    public function testGetMoveLearnMethodByName(): void
     {
-        // TODO: Implement getMoveLearnMethodByName() method.
+        $this->assertUrlOk($this->endpoint->getMoveLearnMethodByName($this->moveLearnMethod),
+            $this->fetcher->getMoveLearnMethodByName($this->moveLearnMethod));
     }
 
-    public function testGetMoveLearnMethodById(int $id): void
+    public function testGetMoveLearnMethodById(): void
     {
-        // TODO: Implement getMoveLearnMethodById() method.
+        $this->assertUrlOk($this->endpoint->getMoveLearnMethodById($this->integer),
+            $this->fetcher->getMoveLearnMethodById($this->integer));
     }
 
     public function testGetAllMoveLearnMethods(): void
     {
-        // TODO: Implement getAllMoveLearnMethods() method.
+        $this->assertUrlOk($this->endpoint->getAllMoveLearnMethods(),
+            $this->fetcher->getAllMoveLearnMethods());
     }
 
-    public function testGetMoveTargetByName(string $name): void
+    public function testGetMoveTargetByName(): void
     {
-        // TODO: Implement getMoveTargetByName() method.
+        $this->assertUrlOk($this->endpoint->getMoveTargetByName($this->moveTarget),
+            $this->fetcher->getMoveTargetByName($this->moveTarget));
     }
 
-    public function testGetMoveTargetById(int $id): void
+    public function testGetMoveTargetById(): void
     {
-        // TODO: Implement getMoveTargetById() method.
+        $this->assertUrlOk($this->endpoint->getMoveTargetById($this->integer),
+            $this->fetcher->getMoveTargetById($this->integer));
     }
 
     public function testGetAllMoveTargets(): void
     {
-        // TODO: Implement getAllMoveTargets() method.
+        $this->assertUrlOk($this->endpoint->getAllMoveTargets(),
+            $this->fetcher->getAllMoveTargets());
     }
 
-    public function testGetAbilityByName(string $name): void
+    public function testGetAbilityByName(): void
     {
-        // TODO: Implement getAbilityByName() method.
+        $this->assertUrlOk($this->endpoint->getAbilityByName($this->ability),
+            $this->fetcher->getAbilityByName($this->ability));
     }
 
-    public function testGetAbilityById(int $id): void
+    public function testGetAbilityById(): void
     {
-        // TODO: Implement getAbilityById() method.
+        $this->assertUrlOk($this->endpoint->getAbilityById($this->integer),
+            $this->fetcher->getAbilityById($this->integer));
     }
 
     public function testGetAllAbilities(): void
     {
-        // TODO: Implement getAllAbilities() method.
+        $this->assertUrlOk($this->endpoint->getAllAbilities(),
+            $this->fetcher->getAllAbilities());
     }
 
-    public function testGetCharacteristicById(int $id): void
+    public function testGetCharacteristicById(): void
     {
-        // TODO: Implement getCharacteristicById() method.
+        $this->assertUrlOk($this->endpoint->getCharacteristicById($this->integer),
+            $this->fetcher->getCharacteristicById($this->integer));
     }
 
     public function testGetAllCharacteristics(): void
     {
-        // TODO: Implement getAllCharacteristics() method.
+        $this->assertUrlOk($this->endpoint->getAllCharacteristics(),
+            $this->fetcher->getAllCharacteristics());
     }
 
-    public function testGetEggGroupByName(string $name): void
+    public function testGetEggGroupByName(): void
     {
-        // TODO: Implement getEggGroupByName() method.
+        $this->assertUrlOk($this->endpoint->getEggGroupByName($this->eggGroup),
+            $this->fetcher->getEggGroupByName($this->eggGroup));
     }
 
-    public function testGetEggGroupById(int $id): void
+    public function testGetEggGroupById(): void
     {
-        // TODO: Implement getEggGroupById() method.
+        $this->assertUrlOk($this->endpoint->getEggGroupById($this->integer),
+            $this->fetcher->getEggGroupById($this->integer));
     }
 
     public function testGetAllEggGroups(): void
     {
-        // TODO: Implement getAllEggGroups() method.
+        $this->assertUrlOk($this->endpoint->getAllEggGroups(),
+            $this->fetcher->getAllEggGroups());
     }
 
-    public function testGetGenderByName(string $name): void
+    public function testGetGenderByName(): void
     {
-        // TODO: Implement getGenderByName() method.
+        $this->assertUrlOk($this->endpoint->getGenderByName($this->gender),
+            $this->fetcher->getGenderByName($this->gender));
     }
 
-    public function testGetGenderById(int $id): void
+    public function testGetGenderById(): void
     {
-        // TODO: Implement getGenderById() method.
+        $this->assertUrlOk($this->endpoint->getGenderById($this->integer),
+            $this->fetcher->getGenderById($this->integer));
     }
 
     public function testGetAllGenders(): void
     {
-        // TODO: Implement getAllGenders() method.
+        $this->assertUrlOk($this->endpoint->getAllGenders(),
+            $this->fetcher->getAllGenders());
     }
 
-    public function testGetGrowthRateByName(string $name): void
+    public function testGetGrowthRateByName(): void
     {
-        // TODO: Implement getGrowthRateByName() method.
+        $this->assertUrlOk($this->endpoint->getGrowthRateByName($this->growthRate),
+            $this->fetcher->getGrowthRateByName($this->growthRate));
     }
 
-    public function testGetGrowthRateById(int $id): void
+    public function testGetGrowthRateById(): void
     {
-        // TODO: Implement getGrowthRateById() method.
+        $this->assertUrlOk($this->endpoint->getGrowthRateById($this->integer),
+            $this->fetcher->getGrowthRateById($this->integer));
     }
 
     public function testGetAllGrowthRates(): void
     {
-        // TODO: Implement getAllGrowthRates() method.
+        $this->assertUrlOk($this->endpoint->getAllGrowthRates(),
+            $this->fetcher->getAllGrowthRates());
     }
 
-    public function testGetNatureByName(string $name): void
+    public function testGetNatureByName(): void
     {
-        // TODO: Implement getNatureByName() method.
+        $this->assertUrlOk($this->endpoint->getNatureByName($this->nature),
+            $this->fetcher->getNatureByName($this->nature));
     }
 
-    public function testGetNatureById(int $id): void
+    public function testGetNatureById(): void
     {
-        // TODO: Implement getNatureById() method.
+        $this->assertUrlOk($this->endpoint->getNatureById($this->integer),
+            $this->fetcher->getNatureById($this->integer));
     }
 
     public function testGetAllNatures(): void
     {
-        // TODO: Implement getAllNatures() method.
+        $this->assertUrlOk($this->endpoint->getAllNatures(),
+            $this->fetcher->getAllNatures());
     }
 
-    public function testGetPokeathlonStatByName(string $name): void
+    public function testGetPokeathlonStatByName(): void
     {
-        // TODO: Implement getPokeathlonStatByName() method.
+        $this->assertUrlOk($this->endpoint->getPokeathlonStatByName($this->pokeathlonStat),
+            $this->fetcher->getPokeathlonStatByName($this->pokeathlonStat));
     }
 
-    public function testGetPokeathlonStatById(int $id): void
+    public function testGetPokeathlonStatById(): void
     {
-        // TODO: Implement getPokeathlonStatById() method.
+        $this->assertUrlOk($this->endpoint->getPokeathlonStatById($this->integer),
+            $this->fetcher->getPokeathlonStatById($this->integer));
     }
 
     public function testGetAllPokeathlonStats(): void
     {
-        // TODO: Implement getAllPokeathlonStats() method.
+        $this->assertUrlOk($this->endpoint->getAllPokeathlonStats(),
+            $this->fetcher->getAllPokeathlonStats());
     }
 
-    public function testGetPokemonByName(string $name): void
+    public function testGetPokemonByName(): void
     {
-        // TODO: Implement getPokemonByName() method.
+        $this->assertUrlOk($this->endpoint->getPokemonByName($this->pokemon),
+            $this->fetcher->getPokemonByName($this->pokemon));
     }
 
-    public function testGetPokemonById(int $id): void
+    public function testGetPokemonById(): void
     {
-        // TODO: Implement getPokemonById() method.
+        $this->assertUrlOk($this->endpoint->getPokemonById($this->integer),
+            $this->fetcher->getPokemonById($this->integer));
     }
 
     public function testGetAllPokemon(): void
     {
-        // TODO: Implement getAllPokemon() method.
+        $this->assertUrlOk($this->endpoint->getAllPokemon(),
+            $this->fetcher->getAllPokemon());
     }
 
-    public function testGetPokemonLocationAreasByName(string $name): void
+    public function testGetPokemonLocationAreasByName(): void
     {
-        // TODO: Implement getPokemonLocationAreasByName() method.
+        $this->assertUrlOk($this->endpoint->getPokemonLocationAreasByName($this->pokemon),
+            $this->fetcher->getPokemonLocationAreasByName($this->pokemon));
     }
 
-    public function testGetPokemonLocationAreasById(int $id): void
+    public function testGetPokemonLocationAreasById(): void
     {
-        // TODO: Implement getPokemonLocationAreasById() method.
+        $this->assertUrlOk($this->endpoint->getPokemonLocationAreasById($this->integer),
+            $this->fetcher->getPokemonLocationAreasById($this->integer));
     }
 
-    public function testGetPokemonColorByName(string $name): void
+    public function testGetPokemonColorByName(): void
     {
-        // TODO: Implement getPokemonColorByName() method.
+        $this->assertUrlOk($this->endpoint->getPokemonColorByName($this->pokemonColor),
+            $this->fetcher->getPokemonColorByName($this->pokemonColor));
     }
 
-    public function testGetPokemonColorById(int $id): void
+    public function testGetPokemonColorById(): void
     {
-        // TODO: Implement getPokemonColorById() method.
+        $this->assertUrlOk($this->endpoint->getPokemonColorById($this->integer),
+            $this->fetcher->getPokemonColorById($this->integer));
     }
 
     public function testGetAllPokemonColors(): void
     {
-        // TODO: Implement getAllPokemonColors() method.
+        $this->assertUrlOk($this->endpoint->getAllPokemonColors(),
+            $this->fetcher->getAllPokemonColors());
     }
 
-    public function testGetPokemonFormByName(string $name): void
+    public function testGetPokemonFormByName(): void
     {
-        // TODO: Implement getPokemonFormByName() method.
+        $this->assertUrlOk($this->endpoint->getPokemonFormByName($this->pokemon),
+            $this->fetcher->getPokemonFormByName($this->pokemon));
     }
 
-    public function testGetPokemonFormById(int $id): void
+    public function testGetPokemonFormById(): void
     {
-        // TODO: Implement getPokemonFormById() method.
+        $this->assertUrlOk($this->endpoint->getPokemonFormById($this->integer),
+            $this->fetcher->getPokemonFormById($this->integer));
     }
 
     public function testGetAllPokemonForms(): void
     {
-        // TODO: Implement getAllPokemonForms() method.
+        $this->assertUrlOk($this->endpoint->getAllPokemonForms(),
+            $this->fetcher->getAllPokemonForms());
     }
 
-    public function testGetPokemonHabitatByName(string $name): void
+    public function testGetPokemonHabitatByName(): void
     {
-        // TODO: Implement getPokemonHabitatByName() method.
+        $this->assertUrlOk($this->endpoint->getPokemonHabitatByName($this->pokemonHabitat),
+            $this->fetcher->getPokemonHabitatByName($this->pokemonHabitat));
     }
 
-    public function testGetPokemonHabitatById(int $id): void
+    public function testGetPokemonHabitatById(): void
     {
-        // TODO: Implement getPokemonHabitatById() method.
+        $this->assertUrlOk($this->endpoint->getPokemonHabitatById($this->integer),
+            $this->fetcher->getPokemonHabitatById($this->integer));
     }
 
     public function testGetAllPokemonHabitats(): void
     {
-        // TODO: Implement getAllPokemonHabitats() method.
+        $this->assertUrlOk($this->endpoint->getAllPokemonHabitats(),
+            $this->fetcher->getAllPokemonHabitats());
     }
 
-    public function testGetPokemonShapeByName(string $name): void
+    public function testGetPokemonShapeByName(): void
     {
-        // TODO: Implement getPokemonShapeByName() method.
+        $this->assertUrlOk($this->endpoint->getPokemonShapeByName($this->pokemonShape),
+            $this->fetcher->getPokemonShapeByName($this->pokemonShape));
     }
 
-    public function testGetPokemonShapeById(int $id): void
+    public function testGetPokemonShapeById(): void
     {
-        // TODO: Implement getPokemonShapeById() method.
+        $this->assertUrlOk($this->endpoint->getPokemonShapeById($this->integer),
+            $this->fetcher->getPokemonShapeById($this->integer));
     }
 
     public function testGetAllPokemonShapes(): void
     {
-        // TODO: Implement getAllPokemonShapes() method.
+        $this->assertUrlOk($this->endpoint->getAllPokemonShapes(),
+            $this->fetcher->getAllPokemonShapes());
     }
 
-    public function testGetPokemonSpeciesByName(string $name): void
+    public function testGetPokemonSpeciesByName(): void
     {
-        // TODO: Implement getPokemonSpeciesByName() method.
+        $this->assertUrlOk($this->endpoint->getPokemonSpeciesByName($this->pokemon),
+            $this->fetcher->getPokemonSpeciesByName($this->pokemon));
     }
 
-    public function testGetPokemonSpeciesById(int $id): void
+    public function testGetPokemonSpeciesById(): void
     {
-        // TODO: Implement getPokemonSpeciesById() method.
+        $this->assertUrlOk($this->endpoint->getPokemonSpeciesById($this->integer),
+            $this->fetcher->getPokemonSpeciesById($this->integer));
     }
 
     public function testGetAllPokemonSpecies(): void
     {
-        // TODO: Implement getAllPokemonSpecies() method.
+        $this->assertUrlOk($this->endpoint->getAllPokemonSpecies(),
+            $this->fetcher->getAllPokemonSpecies());
     }
 
-    public function testGetStatByName(string $name): void
+    public function testGetStatByName(): void
     {
-        // TODO: Implement getStatByName() method.
+        $this->assertUrlOk($this->endpoint->getStatByName($this->stat),
+            $this->fetcher->getStatByName($this->stat));
     }
 
-    public function testGetStatById(int $id): void
+    public function testGetStatById(): void
     {
-        // TODO: Implement getStatById() method.
+        $this->assertUrlOk($this->endpoint->getStatById($this->integer),
+            $this->fetcher->getStatById($this->integer));
     }
 
     public function testGetAllStats(): void
     {
-        // TODO: Implement getAllStats() method.
+        $this->assertUrlOk($this->endpoint->getAllStats(),
+            $this->fetcher->getAllStats());
     }
 
-    public function testGetTypeByName(string $name): void
+    public function testGetTypeByName(): void
     {
-        // TODO: Implement getTypeByName() method.
+        $this->assertUrlOk($this->endpoint->getTypeByName($this->type),
+            $this->fetcher->getTypeByName($this->type));
     }
 
-    public function testGetTypeById(int $id): void
+    public function testGetTypeById(): void
     {
-        // TODO: Implement getTypeById() method.
+        $this->assertUrlOk($this->endpoint->getTypeById($this->integer),
+            $this->fetcher->getTypeById($this->integer));
     }
 
     public function testGetAllTypes(): void
     {
-        // TODO: Implement getAllTypes() method.
+        $this->assertUrlOk($this->endpoint->getAllTypes(),
+            $this->fetcher->getAllTypes());
     }
 
-    public function testGetLanguageByName(string $name): void
+    public function testGetLanguageByName(): void
     {
-        // TODO: Implement getLanguageByName() method.
+        $this->assertUrlOk($this->endpoint->getLanguageByName($this->language),
+            $this->fetcher->getLanguageByName($this->language));
     }
 
-    public function testGetLanguageById(int $id): void
+    public function testGetLanguageById(): void
     {
-        // TODO: Implement getLanguageById() method.
+        $this->assertUrlOk($this->endpoint->getLanguageById($this->integer),
+            $this->fetcher->getLanguageById($this->integer));
     }
 
     public function testGetAllLanguages(): void
     {
-        // TODO: Implement getAllLanguages() method.
+        $this->assertUrlOk($this->endpoint->getAllLanguages(),
+            $this->fetcher->getAllLanguages());
     }
 }

@@ -26,8 +26,7 @@ trait HasGames
 
     public function getPokedexById(int $id): array
     {
-        // TODO: Implement getPokedexById() method.
-        return $this->fetch($this->builder->getPokedexById());
+        return $this->fetch($this->builder->getPokedexById($id));
     }
 
     public function getAllPokedexs(): array
@@ -52,7 +51,7 @@ trait HasGames
 
     public function getVersionGroupByName(string $name): array
     {
-        return $this->fetch($this->builder->getVersionGroupByName());
+        return $this->fetch($this->builder->getVersionGroupByName($name));
     }
 
     public function getVersionGroupById(int $id): array
